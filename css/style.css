@@ -15,6 +15,9 @@
 
 body {
     background-color: #F5F5F5;
+    
+    
+    
 }
 
 /* #4 # sweat #uppercase buttons and w3w locations */
@@ -28,10 +31,45 @@ button, strong {
 
 /* #4 #sweat address both #app-bar s */
 h1 {
+    /*position: fixed;
+    width: 100%;*/
     background-color: #3F51B5;
+    border: none;
     color: white;
+    font-family: Roboto;
+    font-size: medium;
+    height: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+    line-height: 64px;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    
+    
+  
+    
 }
+/* positioning the text chatter|app within the container aligned with the icon*/
+h1 span{
+    position: absolute;
+    font-family: Roboto;
+    font-size: medium;
+    line-height: 64px;
+    height: 64px; 
+    padding-left: 5px;
+}
+/* positioning duck in the app-bar as requested*/
 
+h1 img{
+    position: relative;
+    height: 64px;
+    line-height: 64px;
+    top: 8px;
+    left: 10px;
+    text-align: center;
+    
+}
 
 /* CHANNELS LIST */
 
@@ -41,6 +79,7 @@ ul {
     background-color: white;
     /* #3 #channels #bullets removed */
     list-style-type: none;
+   
 }
 
 li {
@@ -51,17 +90,14 @@ li {
     font-size: 16px;
     /* #4 #channel tiles are separated by #lines */
     border-bottom: 1px solid #F5F5F5;
+    
 }
 
 /* #4 active #channel is #highlighted */
 li.selected {
     color: #3F51B5;
     border-left: 4px solid #3F51B5;
-}
-
-li img {
-    /* #4 #middle vertical alignment of icons in the #channels list */
-    vertical-align: middle;
+    
 }
 
 /* TAB BAR */
@@ -72,6 +108,14 @@ li img {
     background-color: white;
     /* #3 #tab-bar #container has all buttons centered */
     text-align: center;
+    position: fixed;
+    width: 40%;
+    bottom: 0px;
+    /*Used the flexbox tool to distribute the three buttons in the bottom of the channel window
+    equally throughout the whole width*/
+    display: flex;
+    justify-content: space-around;    
+    
 }
 
 /* #4 add styles to #tab-bar #buttons */
@@ -110,36 +154,123 @@ li img {
 
     /* #4 #message distance to next message container*/
     margin-bottom: 8px;
+    
 }
 
-
+/*this selector is the flex parent of the messages boxes*/
 .message h3 {
     font-size: medium;
+    display: flex;
+    /*distributes the meta-data through the width of the div*/
+    justify-content: space-between;
+    
 }
-
+/*enlarging the remaining time from the meta-data*/
 .message h3 em {
     font-size: larger;
     font-style: normal;
 }
+/*applying the color of the text of the location*/
 
 .message h3 a {
     /* #3 #chat #link color is primary text */
     color: black;
 }
-
+/*applying the font size color properties to the text inside the box*/
+/*+5min buttton located to the far right with 8px padding bottom, right*/
 .message p {
     background-color: white;
-    padding: 16px;
-}
+    padding: 16px 8px 8px 16px;
+    color: black;
+    border: none;
+    text-align: left;
+    font-size: 17px;
+    line-height: 17px;
+    
 
+}
+/*Using the float property to locate the 5min button to the far right*/
 .message button {
+    position: relative;
     background-color: #CDDC39;
     color: black;
-    text-transform: uppercase;
+    text-transform: uppercase; 
+    float: right;
+    
+    
 }
 
+/* own message uses a 17.5% margin to differentiate from the other messages*/
 /* #4 left align own #messages using #margins */
-.message.own {
+.message.own{
     margin-left: 17.5%;
+    
 }
+
+/* LAYOUT FOR CHANNELS AND CHAT AREA*/
+/*This selector locates channels div to 40% left of the window*/
+#channels {
+    position: absolute; 
+    left: 0;
+    width: 40%;
+}
+
+/*This selector locates chat div to 60% of the window on the right side*/
+#chat {
+    position: absolute;
+    right: 0;
+    width: 60%;
+    
+}
+/*class created to align stars and arrows to the right of the tile in each channel*/
+.channel-meta{
+    vertical-align: middle;
+    float: right;
+}
+#chat-bar{
+    background-color: white;
+    border: none;
+    /* #3 #tab-bar #container should be white */
+    /* #3 #tab-bar #container has all buttons centered */
+    /*Heigth and line height equal to center the items vertically*/
+    height: 72px;
+    line-height: 72px;
+    /*fixed position to be able to see it everytime*/
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    padding-left: 5px;
+    display: flex; 
+    
+   /*position: fixed;
+    width: 40%;*/
+    
+}
+/*emoji window with thin black borders, 28px fontsize, squared shape, overflow 
+auto, to be able to scroll when there are too many emojis*/
+#emojis{
+    background-color: white;
+    border: solid;
+    border-width: thin;
+    width: 200px;
+    height: 200px;
+    display: contents;
+    font-size: 28px;
+    padding: 16px 16px;
+    text-align: left;
+    overflow: auto;
+    position: relative;
+    left: 16px;
+    bottom: 0px;
+
+}
+/*This selector is to locate the emoji icon to the bottom left of the chat bar*/
+#chat-bar #emojis-button{
+    border: none;
+    padding-top: 20px;
+    padding-left: 5px;
+    
+    
+}
+
 
