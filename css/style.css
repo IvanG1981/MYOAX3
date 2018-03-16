@@ -16,8 +16,7 @@
 body {
     background-color: #F5F5F5;
     
-    
-    
+
 }
 
 /* #4 # sweat #uppercase buttons and w3w locations */
@@ -42,12 +41,11 @@ h1 {
     padding-left: 16px;
     padding-right: 16px;
     line-height: 64px;
-    position: relative;
-    width: 100%;
     top: 0px;
     
     
-  
+
+      
     
 }
 /* positioning the text chatter|app within the container aligned with the icon*/
@@ -57,20 +55,49 @@ h1 span{
     font-size: medium;
     line-height: 64px;
     height: 64px; 
-    padding-left: 5px;
+    padding-left: 10px;
 }
 /* positioning duck in the app-bar as requested*/
 
 h1 img{
     position: relative;
-    height: 64px;
-    line-height: 64px;
+    height: 40px;
+    line-height: 40px;
     top: 8px;
-    left: 10px;
-    text-align: center;
+    left: 10px;   
+}
+.current_channel{
+
+}
+.current_channel #current_channel_name{
+    color: white;
     
 }
+.current_channel #location {
+    color: white;    
+    left: 180px;
+    
+}
+.current_channel img{
+    float: right;
+    height: 35px;
+    line-height: 35px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    margin-top: 6px;
 
+}
+#likestar {
+    cursor: pointer;
+}
+#location a {
+    color: white;
+    font-size: medium; 
+}
+    
 /* CHANNELS LIST */
 
 /* #4 #sweat #channels */
@@ -226,6 +253,7 @@ li.selected {
 .channel-meta{
     vertical-align: middle;
     float: right;
+    cursor: pointer;
 }
 #chat-bar{
     background-color: white;
@@ -240,21 +268,17 @@ li.selected {
     width: 100%;
     bottom: 0px;
     padding-left: 5px;
-    display: flex; 
-    
-   /*position: fixed;
-    width: 40%;*/
+    display: flex;
     
 }
 /*emoji window with thin black borders, 28px fontsize, squared shape, overflow 
 auto, to be able to scroll when there are too many emojis*/
-#emojis{
+#emojis {
     background-color: white;
     border: solid;
     border-width: thin;
     width: 200px;
     height: 200px;
-    display: contents;
     font-size: 28px;
     padding: 16px 16px;
     text-align: left;
@@ -262,6 +286,7 @@ auto, to be able to scroll when there are too many emojis*/
     position: relative;
     left: 16px;
     bottom: 0px;
+    display: none;
 
 }
 /*This selector is to locate the emoji icon to the bottom left of the chat bar*/

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>chatter|app</title>
-
+    
     <!-- #4 embed the #roboto #font. This needs to go above your css -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
 
     <!-- #4 #sweat out the styles by creating an #external css -->
     <link rel="stylesheet" href="css/style.css" />
-
+    
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+</script>
     
 </head>
 <body>
@@ -25,7 +28,8 @@
     <ul>
         <li>#Yummy
             <!-- #3 #channels #favorite this is not starred -->
-            <span class="channel-meta">
+            <span class="channel-meta" onclick="switchChannel('#Yummy'); emptyStar();">
+                <!--document.getElementById('current_channel_name').innerHTML = '#Yummy'; -->
                 <img  src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
                 <img  src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="right-arrow">
             </span>
@@ -35,25 +39,25 @@
         <li class="selected">
             #SevenContinents
             <!-- #3 #channels #favorite this is starred -->
-            <span class="channel-meta">
+            <span class="channel-meta" onclick="switchChannel('#SevenContinents'); emptyStar();">
             <img  src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred"><img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="right-arrow">
             </span>
         </li>
         <li>#KillerApp
             <!-- #3 #channels #favorite this is not starred -->
-            <span class="channel-meta">
+            <span class="channel-meta" onclick="switchChannel('#KillerApp'); emptyStar();">
             <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred"><img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="right-arrow">
             </span>
         </li>
         <li>#FirstPersonOnMars
             <!-- #3 #channels #favorite this is starred -->
-            <span class="channel-meta">
+            <span class="channel-meta" onclick="switchChannel('#FirstPersonOnMars'); emptyStar();">
             <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred"><img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="right-arrow">
             </span>
         </li>
         <li>#Octoberfest
             <!-- #3 #channels #favorite this is not starred -->
-            <span class="channel-meta">
+            <span class="channel-meta" onclick="switchChannel('#Octoberfest'); emptyStar();">
             <img  src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred"><img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="right-arrow">
             </span>    
         </li>
@@ -65,17 +69,17 @@
     <!-- #4 #sweat #tab-bar -->
     <div id="tab-bar">
         <!-- #4 #tab-bar selected channel should be #highlighted -->
-        <button class="selected">
+        <button class="selected" id="lightbulb" onclick="selectTab('#lightbulb');">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/lightbulb-o.png" alt="Bulb">
             New
         </button>
-        <button>
+        <button id="fire" onclick="selectTab('#fire');">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/fire.png" alt="Hot">
             Trending
         </button>
-        <button>
+        <button id="star" onclick="selectTab('#star');">
             <!-- #3 #tab-bar #images -->
             <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="Star">
             Favorites
@@ -85,11 +89,15 @@
 
 <!-- #4 #one #page -->
 <div id="chat">
-    <h1>
-        #SevenContinents
-        <small>by
+    <h1 class="current_channel">
+        <span id="current_channel_name">#SevenContinents</span>
+        <span id="location"><small>by
+            
+            <a id="locationRef" href="http://w3w.co/cheeses.yard.applies" target="_blank">
             <strong>cheeses.yard.applies</strong>
-        </small>
+            </a>
+            </small></span>
+        <img id="likestar" src="http://ip.lfe.mw.tum.de/sections/star.png" alt="Star" onclick="filledStar();">
     </h1>
 
     <!-- #3 #chat #container -->
@@ -182,10 +190,10 @@
         <button>+5 min.</button></p>
     </div>
     
-    <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604;&#x1F605;
-    &#x1F605;&#x1F605;&#x1F605;</div>
+    <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604;&#x1F605;&#x1F605;&#x1F605;&#128516; &#x1f604; &#128517; &#x1f605;&#128518; &#x1f606; &#128519; &#x1f607;&#128520; &#x1f608;&#128521; &#x1f609;&#128522; &#x1f60a;&#128523; &#x1f60b;&#128524; &#x1f60c;&#128525; &#x1f60d;&#128526; &#x1f60e;&#128527; &#x1f60f; &#128528; &#x1f610;&#128529; &#x1f611;&#128530; &#x1f612;&#128531; &#x1f613;&#128532; &#x1f614;&#128533; &#x1f615;&#128534; &#x1f616&#128535;&#x1f617;&#128536; &#x1f618;&#128537; &#x1f619;
+    </div>
        <div id="chat-bar">
-           <button id="emojis-button">
+           <button id="emojis-button" onclick="emoji_available();">
                <img src="http://ip.lfe.mw.tum.de/sections/smile-o.png" alt="smiley">
            </button>
 
